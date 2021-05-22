@@ -1,6 +1,6 @@
 # aw-watcher-tmux - An activity watcher for tmux
 
-A tmux plugin that allows [ActivityWatch](https://activitywatch.net) to monitor activity in sessions and panes.
+A tmux plugin that allows monitoring activity in sessions and panes with [ActivityWatch](https://activitywatch.net).
 
 Watches for activity in multiple tmux sessions and reports `session_name`, `window_name`, `pane_title`, `pane_current_command`, and `pane_current_path`.
 
