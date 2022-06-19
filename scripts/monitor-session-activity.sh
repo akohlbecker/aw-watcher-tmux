@@ -70,7 +70,7 @@ do
 	if (( $? == 0 )); then
         LAST_IFS=$IFS
         IFS='
-'   
+'
         for sess in ${sessions}; do
             act_time=$(tmux display -t $sess -p '#{session_activity}')
             if [[ ! -v "act_last[$sess]" ]];  then
@@ -80,7 +80,7 @@ do
                 # echo "###> "$sess' '$(date -Iseconds)'    '$act_time' '$act_last[$sess] ##  >> tmux-sess-act.log
                 log_to_bucket $sess
             fi
-            act_current[$sess]=$act_time 
+            act_current[$sess]=$act_time
         done
         IFS=$LAST_IFS
         # copy arrays
@@ -90,6 +90,6 @@ do
             act_last[$sess]=${act_current[$sess]}
         done
 	fi
-	
+
 	sleep $POLL_INTERVAL
 done
