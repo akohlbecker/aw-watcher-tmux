@@ -40,3 +40,14 @@ Once the aw-watcher-tmux plugin is installed it monitors for user activity in al
 aw-watcher-tmux creates a new bucket. The existence of this bucket can be checked with [http://localhost:5600/api/0/buckets/aw-watcher-tmux](http://localhost:5600/api/0/buckets/aw-watcher-tmux).
 
 All activity recorded in this bucket can be seen on [http://localhost:5600/#/timeline](http://localhost:5600/#/timeline)
+
+## Configuration
+
+Many parameters of this plugin are configurable. For example to use `my.aw-server.test` as alternative aw host, add the following line to your `~/.tmux.conf`:
+
+~~~tmux
+set -g @aw-watcher-tmux-host 'my.aw-server.test'
+~~~
+
+For more options, please see `./scripts/monitor-session-activity.sh`
+

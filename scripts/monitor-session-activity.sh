@@ -1,18 +1,27 @@
 #!/usr/bin/env bash
 
-POLL_INTERVAL=10 # seconds
+get_tmux_option() {
+  local option_value=$(tmux show-option -gqv "$1");
+  echo ${option_value:-$2}
+}
+
+######
+# Configurable options
+#
+# Usage examle:
+# set -g @aw-watcher-tmux-host 'my.aw-server.test'
+POLL_INTERVAL=$(get_tmux_option "@aw-watcher-tmux-poll-interval" 10) # seconds
+HOST=$(get_tmux_option "@aw-watcher-tmux-host" "localhost")
+PORT=$(get_tmux_option "@aw-watcher-tmux-port" "5600")
+PULSETIME=$(get_tmux_option "@aw-watcher-tmux-pulsetime" "120.0")
 
 BUCKET_ID="aw-watcher-tmux"
-HOST="localhost"
-PORT="5600"
 API_URL="http://$HOST:$PORT/api"
-PULSETIME="120.0"
 
 ######
 # Related documentation:
 #  * https://github.com/tmux/tmux/wiki/Formats
 #  * https://github.com/tmux/tmux/wiki/Advanced-Use#user-content-getting-information
-#
 #
 
 
