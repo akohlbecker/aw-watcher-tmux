@@ -12,6 +12,11 @@ The plugin has been tested on Linux and is expected to work also on macOS and on
 
 * [ActivityWatch](https://activitywatch.net)
 * curl
+* bash version >= 4.0
+
+#### macOS / Mac OSX
+
+MacOS versions might still being shipped with bash versions < 4.0. In this case you will need to upgrade bash. In [#2#issuecomment-1331496394](https://github.com/akohlbecker/aw-watcher-tmux/issues/2#issuecomment-1331496394) you can find instructions on how to upgrade bash via brew.
 
 ### Preparation
 
