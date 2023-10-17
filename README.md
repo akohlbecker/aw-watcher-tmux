@@ -16,7 +16,35 @@ The plugin has been tested on Linux and is expected to work also on macOS and on
 
 #### macOS / Mac OSX
 
-MacOS versions might still being shipped with bash versions < 4.0. In this case you will need to upgrade bash. In [#2#issuecomment-1331496394](https://github.com/akohlbecker/aw-watcher-tmux/issues/2#issuecomment-1331496394) you can find instructions on how to upgrade bash via brew.
+Current MacOS versions might still being shipped with bash versions < 4.0 and date commands that are incompatible with the `monitor-session-activity.sh` script, which initially has been developped for linux. Thanks to @snipem and @joshmedeski you can find below copied instructions in issue #2 on how to upgrade bash, install `gdate` as replacement for `date` and to modify the script accordingly:
+
+1. Install latest bash
+
+~~~bash
+brew install bash
+~~~
+
+Replace the top line of monitor-session-activity.sh with the update bash (run which bash to get the path).
+
+~~~diff
+-#!/bin/bash
++#!/opt/homebrew/bin/bash
+~~~
+
+Install coreutils to get gdate on my machine.
+
+
+~~~bash
+brew install coreutils
+~~~
+
+Replace the PAYLOAD variable with gdate.
+
+~~~diff
+-PAYLOAD="{\"timestamp\":\"$(date -Is)\",\"duration\":0,\"data\":$DATA}"
++PAYLOAD="{\"timestamp\":\"$(gdate -Is)\",\"duration\":0,\"data\":$DATA}"
+~~~
+
 
 ### Preparation
 
@@ -43,7 +71,7 @@ All activity recorded in this bucket can be seen on [http://localhost:5600/#/tim
 
 ## Configuration
 
-Many parameters of this plugin are configurable. For example to use `my.aw-server.test` as alternative aw host, add the following line to your `~/.tmux.conf`:
+Most parameters of this plugin are configurable. For example to use `my.aw-server.test` as alternative aw host, add the following line to your `~/.tmux.conf`:
 
 ~~~tmux
 set -g @aw-watcher-tmux-host 'my.aw-server.test'
