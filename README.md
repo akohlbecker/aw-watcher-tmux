@@ -16,7 +16,7 @@ The plugin has been tested on Linux and is expected to work also on macOS and on
 
 #### macOS / Mac OSX
 
-Current MacOS versions might still being shipped with bash versions < 4.0 and date commands that are incompatible with the `monitor-session-activity.sh` script, which initially has been developped for linux. Thanks to @snipem and @joshmedeski you can find below copied instructions in issue #2 on how to upgrade bash, install `gdate` as replacement for `date` and to modify the script accordingly:
+Current MacOS versions might still being shipped with bash versions < 4.0 and date commands that are incompatible with the `monitor-session-activity.sh` script, which initially has been developed for linux. Thanks to @snipem and @joshmedeski you can find below copied instructions in issue #2 on how to upgrade bash, install `gdate` as replacement for `date` and to modify the script accordingly:
 
 1. Install latest bash
 
